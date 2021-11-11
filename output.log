@@ -1,0 +1,113 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+psm_dyn_test is a Catch v2.13.7 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Verifying FK of PSM
+-------------------------------------------------------------------------------
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_psm_fk.cpp:9
+...............................................................................
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_psm_fk.cpp:22: PASSED:
+  REQUIRE( psm1.dof() == 7 )
+with expansion:
+  7 == 7
+
+-------------------------------------------------------------------------------
+Verifying FK of PSM
+  computing FK at home config
+-------------------------------------------------------------------------------
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_psm_fk.cpp:24
+...............................................................................
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_psm_fk.cpp:31: PASSED:
+  REQUIRE( psm1.compute_FK(joint_pos, actual_ht) == true )
+with expansion:
+  true == true
+
+-------------------------------------------------------------------------------
+Verifying FK of PSM
+-------------------------------------------------------------------------------
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_psm_fk.cpp:9
+...............................................................................
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_psm_fk.cpp:22: PASSED:
+  REQUIRE( psm1.dof() == 7 )
+with expansion:
+  7 == 7
+
+-------------------------------------------------------------------------------
+Testing axisangle2rot
+  No rotation
+-------------------------------------------------------------------------------
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:14
+...............................................................................
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:22: PASSED:
+  REQUIRE( utils_st.axisangle2rot(omega, theta, actual_ht) == true )
+with expansion:
+  true == true
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:23: PASSED:
+  REQUIRE( actual_ht == expected_ht )
+with expansion:
+  1 0 0
+  0 1 0
+  0 0 1
+  ==
+  1 0 0
+  0 1 0
+  0 0 1
+
+-------------------------------------------------------------------------------
+Testing axisangle2rot
+  Rotation around z-axis by 30deg
+-------------------------------------------------------------------------------
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:26
+...............................................................................
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:37: PASSED:
+  REQUIRE( utils_st.axisangle2rot(omega, theta, actual_ht) == true )
+with expansion:
+  true == true
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:38: PASSED:
+  REQUIRE( actual_ht == expected_ht )
+with expansion:
+  0.866158 -0.49977        0
+   0.49977 0.866158        0
+         0        0        1
+  ==
+  0.866158 -0.49977        0
+   0.49977 0.866158        0
+         0        0        1
+
+-------------------------------------------------------------------------------
+Testing twist_to_ht
+  Pure Rotation around z-axis by 30deg
+-------------------------------------------------------------------------------
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:47
+...............................................................................
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:60: PASSED:
+  REQUIRE( utils_st.twist_to_ht(screw_axis, theta, actual_ht) == true )
+with expansion:
+  true == true
+
+/home/emmanuel/workspace/dvrk-workspace/ros_ws/src/psm_dyn/test/test_utils_screw_theory.cpp:61: PASSED:
+  REQUIRE( actual_ht == expected_ht )
+with expansion:
+  0.866158 -0.49977        0        0
+   0.49977 0.866158        0        0
+         0        0        1        0
+         0        0        0        1
+  ==
+  0.866158 -0.49977        0        0
+   0.49977 0.866158        0        0
+         0        0        1        0
+         0        0        0        1
+
+===============================================================================
+All tests passed (9 assertions in 3 test cases)
+
